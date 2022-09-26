@@ -1,0 +1,323 @@
+http://www.tcpschool.com/java/java_class_component
+Class
+ - 자바에서 클래스class 란 객체를 정의하는 틀 또는 설계도와 가은 의미로 사용.
+ 	ㄴ 객체의 상태를 나타내는 필드field
+ 	 - 필드란 클래스에 포함된 변수variable를 의미.
+ 	 
+ 	ㄴ 객체의 행동을 나타내는 메소드method
+ 	 - 어떠한 특정 작업을 수행하기 위한 명령문의 집합.
+ 	 
+
+instance인스턴스
+ - 자바에서 클래스를 사용하기 위해서는 우선 해당 클래스 타입의 객체(object)를 선언행한다
+ - 클래스로부터 객체를 선언하는 과정을 클래스의 인스턴스 화.
+ - 그 객체를 인스턴스instance 라고한다.
+  ㄴ 메모리에 할당된 객체를 의미합니다.
+  
+
+ Ex)
+ 클래스class
+  - 차
+  
+ 필드field
+  - 차.모델명	: 펠리세이드
+  - 차.연식 	: 2020
+  - 차.색		: 흰색
+  - 차.최고속도: 300
+  
+ 메소드method
+  - 차.액셀
+  - 차.브레이크
+  
+ 인스턴스instance
+ - 내 차(myCar) 설계도(클래스)에 의해 생산된 차량
+ - 타인의 차(othercar) : //
+ 
+ 자동차 인스턴스는 모두 같은 필드와 메소드 항목을 가지고 될것이지만,
+ 각기 다른 프로퍼티의 값을 갖는다.
+ 
+ 
+ 메소드 method
+ 맴버member로 속성을 표현하는 field 와 기능을 표현하는 메소드method
+  - 구성
+   접근제어자 반환타입 메소드이름(매개변수목록) { //선언부
+   	 // 구현부
+   }
+ 
+ 하나의 클래스에 같은 이름의 메소드를 둘 이상 정의할 수 없지만.
+ 메소드 오버로딩overloading을 이용하면, 같은 이릉믜 메소드를 중복하여 정의할 수 잇습니다.
+   
+ 
+ ----- Memeber1.java
+ http://www.tcpschool.com/java/java_member_field
+ Field 
+  클래스의 필드field애 포함된 변수variable를 의미합니다.
+  - 클래스 변수static variable
+  - 인스턴스 변수instance variable
+  - 지역 변수local variable
+  
+  클래스 변수와 인스턴스 변수는 초기화 하지않아도 변수타입에 맞게 자동으로 초기화 될 것이다.
+  하지만 지역 변수는 사용하기 전에 초기화하지 않으면, 자바 컴파일러가 오류를 발생시킵니다.
+ 
+변수의 타입		초깃값
+char			'\u0000'
+byte, short, int	0
+long			0L
+float			0.0F
+double			0.0 또는 0.0D
+boolean			false
+배열, 인스턴스 등	null
+
+
+ Static 키워드
+ 해당 static을 가진 변수를 클래스변수라고 한다.
+ 
+ 클래스 영역에 위치한 변수 중 static 킹워드를 가지지않은 변수는 인스턴스 변수,
+ 메소드,생성자, 초기화 블록내에 위치한 변수를 지역변수라고 부른다.
+ 
+변수			생성 시기					소멸 시기				저장 메모리	사용 방법
+클래스 변수	클래스가 메모리에 올라갈 때	프로그램이 종료될 때		메소드 영역	클래스이름.변수이름
+인스턴스 변수	인스턴스가 생성될 때			인스턴스가 소멸할 때		힙 영역		인스턴스이름.변수이름
+지역 변수		블록 내에서 변수의 선언문이 실행될 때	블록을 벗어날 때	스택 영역		변수이름
+
+ 클래스변수는 인스턴스를 생성하지 않고도 바로 사용할 수 있습니다.
+ 공유변수 shared variable라고도 한다
+ 
+ 클래스변수는 해당 클래스의 모든 인스턴스가 공유해야 하는 값을 유지하기 위해 사용.
+ 인스턴스 변수는 인스턴스마다 가져야하는 고유한 값을 유지하기 위해 사용.
+ 
+ 
+ -----MethodEx.java
+ 메소드 시그니처(method signature)란 
+ 메소드의 선언부에 명시되는 매개변수의 리스트를 가리킵니다.
+ 만약 두 메소드가 매개변수의 개수와 타입, 그 순서까지 모두 같다면,이 두 메소드의 시그니처는 같다고 할 수 있습니다.
+ 
+ //https://wanna-b.tistory.com/75
+ 메서드의 정의에서 메서드 이름가 매개변수 리스트의 조합을 말한다.
+ 이것은 오버로딩때문이며, JAVA컴파일러는 메서드 이름과 매개변수 리스트를 통해 메서드간의 차이를 식별한다.
+ 
+ 
+ -----Method2.java
+ 생성자constructor
+ 
+ 객체의 생성과 동시에 인스턴스 변수를 원하는 ㄱ밧으로 초기화할 수 있는 생성자
+ 해당 클래스의 이름과 같아야한다.
+ 
+ Car클래스 생성자는 Car 이다
+ - 특징
+  1. 생성자는 반환값이 없지만, 반환 타입을 void형으로 선언하지 않습니다
+  2. 생성자는 초기화를 위한 데이터를 인수로 전달 받을 수 있습니다.
+  3. 객체를 초괴화하는 방법이 여러개 존재할 경우에는 하늬 클래스가 여러개의 생성자를 가질 수 있습니다.
+  
+ ex)
+Car(String modelName) {}
+Car(String modelName, int modelYear) {}
+Car(String modelName, int modelYear, String color) {}
+Car(String modelName, int modelYear, String color, int maxSpeeds) {}
+ 
+ 
+  기본 생성자
+  클래스이름() {}
+  
+  기본 생성자는 아무런 동작도 하지 않으므로, 인스턴스 변수를 클래스 필드에서 바로 초기화하고 있습니다.
+  하지만 매개변수를 가지는 생성자를 하나라도 정의하면 기본생성자는 자동생성되지 않으니 생성해줘야한다.
+  
+ 
+ -----
+ 클래스 선언
+ 클래스class, 객체지향프로그래밍의 추상화abstraction라는 개념을 직접 구현한 것.
+ 
+ 그중 접근제어자는 
+ 객체 지향 프로그래밍의 특징 중 하나인 정보은닉(data hiding)을 위한 키워드입니다
+ 
+ public 맴버는 모든 객체에서 접근할 수 있지만, 
+ private맴버는 해당 객체 내의 맴버 변수나 메소드만이 접근할 수 있습니다
+ 
+ http://www.tcpschool.com/java/java_modifier_accessModifier
+ 제어자(modifier)
+ 클래스와 클래스 멤버의 선언시 사용하여 부가적인 으미를 부여한ㄴ 키워드
+ 
+ 접근 제어자(access modifier)
+ 객체 지향에서 정보 은닉(data hiding)이란 사용자가 굳이 알 필요가 없는 정보는 사용자로부터 숨겨야 한다는 개념입니다.
+ 그렇게 함으로써 사용자는 언제나 최소한의 정보만으로 프로그램을 손쉽게 사용할 수 있게 됩니다.
+
+ 
+ private
+ 선언된 클래스 멤버는 외부에 공개되지 않으며, 외부에서는 직접 접근할 수 없다.
+ 자바 프로그램은 private맴버에 직접 접근할 수 업승며, 해당 객체의 public 메소드를 통해서만 접근할 수있다.
+
+ 
+ public
+ 해당 클래스멤버는 외부로 공개되며, 객체를 사용하는 프로그램 어디에서나 접근 가능하다.
+ public메소드를 통해서만 private멤버에 접근 가능하여
+ 두 프로그램사이의 인터페이스inteface역할을 수행한다.
+
+ 
+ default
+ 클래스 및 클래스 멤버의 접근제어의 기본값으로 default 접근제어를 별도로 명시하고 있다.
+ default를 위한 접근제어자는 따로 존재하지 않고, 접근제어자가 지정되지 않으면 자동적으로
+ default 접근제어자로 가ㅈ게 된다.
+ 같은 클래스의 멤버와 같은 패키지에 속하는 멤버에서만 접근 가능하다
+ 
+같은 패키지만 접근 허용
+package test;
+public class SamePackage {
+
+    String sameVar = "같은 패키지는 허용"; // default 필드
+
+}
+
+같은 클래스도 접근 허용
+package test;
+public class SameClass {
+
+    String var = "다른 패키지는 접근 불가"; // default 필드
+
+    public static void main(String[] args) {
+
+        SamePackage sp = new SamePackage();
+        System.out.println(sp.sameVar);     // 같은 패키지는 허용
+    }
+}
+
+
+ protected 
+ private 멤버로 정보를 은닉하고,
+ public	 멤버로 사용자나 프로그램과의 인터페이스를 구축.
+ 
+ 부모클래스와 관련된 접근제어자가 하나 존재.
+ protected는 부모클래스에 대해서는 public멤버처럼 취급되며, 외부에선 private 멤버처럼 취급된다.
+ 
+ 접근 가능영역
+ - 이 멤버를 선언한 클래스의 멤버
+ - 이 멤버를 선언한 클래스가 속한 패키지의 멤버
+ - 이 멤버를 선언한 클래스가 상속받는 자식 클래스의 멤버
+ 
+ 같은 패키지는 접근 허용
+package test;
+public class SameClass {
+
+    protected String sameVar = "다른 패키지에 속하는 자식 클래스까지 허용"; // protected 필드
+
+}
+
+다른 패키지에 속하는 자식 클래스도 접근 허용
+package test.other;
+import test.SameClass; // test 패키지의 SameClass 클래스를 불러들여 포함시킴.
+ 
+public class ChildClass extends SameClass {
+    public static void main(String[] args) {
+
+        SameClass = new SameClass();
+
+        System.out.println(sp.sameVar); // 다른 패키지에 속하는 자식 클래스까지 허용
+    }
+}
+ 
+ public > protected > default > private
+ 
+ 
+ -----
+ 기타제어자
+ http://www.tcpschool.com/java/java_modifier_ectModifier
+ 
+ final제어자  FinalMember.java
+  '변경할 수 없다'는 의미로 사용됩니다.
+  필드나 지역 변수에 사용하면 값을 변경할 수 없는 상수(constant)가 됩니다.
+  
+  '변수에 값 할당을 한번만 할 수 있다.' 
+  final 멤버변수에 값을 할당하는 방법에는 필드 선언시하는것과 생성자를 통해서 할당하는 것이 있다.
+  멤버 변수를 final로 선언하고 선언부나 생성자에서 초기화히지않으면 컴파일 에러가 발생한다.(초기값 지정해줘야한다)
+  
+  final키워드가 붙은 클래스는 다른 클래스가 상속할 수 없다.
+   ex) 	final class Person{String name;}
+   	
+   		class Doctor extends Person{
+   			//상속불가능
+   		}
+   특정 클래스를 상속하면서 메소드들을 오버라이드해서 사용하는 꼼수를 막고 싶은경우
+   final 키워드를 클래스 앞에 붙여주면 된다.		
+   		
+ 
+  메소드에 사용하면 해당 메소든 오버라이딩overriding을 통한 재정의를 할수 없게 됩니다.
+  
+
+ static제어자
+  '공통적인' 의미
+  변수에 사용하면 해당 변수를 클래스 변수로 만들어줍니다. 메소드에 사용하면 해당 메소드를  클래스메소드로 만들어줍니다.
+  static 제어자는 초기화 블록에도 사용할 수 있습니다.
+  
+  static 제어자를 가지는 멤버는 다음과 같은 특징을 가지게 됩니다.
+1. 프로그램 시작시 최초에 단 한 번만 생성되고 초기화됩니다.
+2. 인스턴스를 생성하지 않고도 바로 사용할 수 있게 됩니다.
+3. 해당 클래스의 모든 인스턴스가 공유합니다.
+ 
+ 
+   abstract제어자
+   '추상적인'
+ 	선언부만 있고 구현부가 없는 메소드를 = 추상메소드 라고하며, abstract를 붙입니다.
+ 	또한, 하나 이상의 추상메소드가 포함하고 있는 추상클래스도 반드시 abstract를 붙여합니다.
+ 	
+ 	abstract class abstractCar{		// 추상클래스
+ 		abstract void apple();		// 추상메소드
+ 	}
+ 
+ 
+ 1. 클래스에 final과 abstract는 함께 사용할 수 없습니다.
+: final 제어자를 가지는 클래스는 다른 클래스가 상속받을 수 없게 되며, 
+abstract 제어자를 가지는 클래스는 다른 클래스가 상속해서 오버라이딩해야만 사용할 수 있으므로,
+이 두 제어자는 클래스에 함께 사용할 수 없습니다.
+
+2. 메소드에 static과 abstract는 함께 사용할 수 없습니다.j
+: abstract 제어자를 가지는 메소드는 선언부만 있고 구현부가 없는 메소드인데, 
+static 제어자를 가지는 메소드는 인스턴스를 생성하지 않고도 바로 사용할 수 있어야 하므로, 
+이 두 제어자는 메소드에 함께 사용할 수 없습니다.
+
+3. 메소드에 private과 abstract는 함께 사용할 수 없습니다.
+: abstract 제어자를 가지는 메소드는 다른 클래스가 상속하여 오버라이딩해야만 사용할 수 있는데, 
+private 제어자를 가지는 메소드는 자식 클래스에서 접근할 수 없게 되므로, 
+이 두 제어자는 메소드에 함께 사용할 수 없습니다.
+
+4. 메소드에 private과 final은 함께 사용할 필요가 없습니다.
+: 메소드에 사용된 final 제어자와 private 제어자는 모두 해당 메소드가 오버라이딩을 통한 재정의를 할 수 없다는 의미를 가지므로, 
+둘 중에 하나만 사용해도 의미가 충분히 전달될 수 있습니다.
+
+
+-----
+ 초기화 블록.
+ http://www.tcpschool.com/java/java_member_initBlock
+ 
+ 필드의 초기화
+ 자바에서 필드는 초기화하지 않아도 '변수의 타입'에 맞는 초기값으로 자동으로 초기화됩니다.
+ 지역변수와 마찬가지로 적절한 값으로 초기화한 후 사용하는 것이 좋습니다.
+ 
+ 1. 명시적초기화
+ 2. 생성자를 이용한 초기화
+ 3. 초기화 블록을 이용한 초기화
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
